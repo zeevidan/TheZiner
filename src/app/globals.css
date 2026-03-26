@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --t-primary: #2563eb;
+  --t-primary-fg: #ffffff;
+  --t-secondary: #f1f5f9;
+  --t-secondary-fg: #1e293b;
+  --t-accent: #8b5cf6;
+  --t-accent-fg: #ffffff;
+  --t-bg: #ffffff;
+  --t-fg: #0f172a;
+  --t-muted: #f8fafc;
+  --t-muted-fg: #64748b;
+  --t-card: #ffffff;
+  --t-card-fg: #0f172a;
+  --t-border: #e2e8f0;
+  --t-destructive: #ef4444;
+  --t-success: #22c55e;
+  --t-font-heading: 'Inter', sans-serif;
+  --t-font-body: 'Inter', sans-serif;
+  --t-radius: 8px;
+  --t-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  --t-border-width: 1px;
+  --t-opacity: 1;
+  --t-card-alpha: #ffffff;
+  --t-muted-alpha: #f8fafc;
+  --t-backdrop: none;
+  --t-spacing: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--t-bg);
+  color: var(--t-fg);
+  font-family: var(--t-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--t-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--t-muted-fg);
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: var(--t-border);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--t-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--t-card);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Color input styling */
+input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 2px solid var(--t-border);
+  cursor: pointer;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+/* Transitions */
+button, a {
+  transition: all 0.15s ease;
 }
